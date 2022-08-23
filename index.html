@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Eldritch Horror</title>
+</head>
+<body>
+    <div class="ancients-box">
+        <div class="ancient azathoth chosen"></div>
+        <div class="ancient cthulhu"></div>
+        <div class="ancient iogSothoth"></div>
+        <div class="ancient shubNiggurath"></div>
+    </div>
+    <div class="difficulty-box">
+        <input type="radio" name="diff" class="difficulty-button" id="extra-easy" value="extra-easy" checked><label for="extra-easy">Очень легкая</label>
+        <input type="radio" name="diff" class="difficulty-button" id="easy" value="easy"><label for="easy">Легкая</label>
+        <input type="radio" name="diff" class="difficulty-button" id="normal" value="normal"><label for="normal">Средняя</label>
+        <input type="radio" name="diff" class="difficulty-button" id="hard" value="hard"><label for="hard">Сложная</label>
+        <input type="radio" name="diff" class="difficulty-button" id="extra-hard" value="extra-hard"><label for="extra-hard">Очень сложная</label>
+    </div>
+    <div class="game-box">
+        <button>Замешать колоду</button>
+        <div class="play-box hidden">
+            <div class="state-box">
+                <span>Этап 1</span>
+                <div class="row">
+                    <div class="circle green first"></div>
+                    <div class="circle brown first"></div>
+                    <div class="circle blue first"></div>
+                </div>
+                <span>Этап 2</span>
+                <div class="row">
+                    <div class="circle green second"></div>
+                    <div class="circle brown second"></div>
+                    <div class="circle blue second"></div>
+                </div>
+                <span>Этап 3</span>
+                <div class="row">
+                    <div class="circle green third"></div>
+                    <div class="circle brown third"></div>
+                    <div class="circle blue third"></div>
+                </div>
+            </div>
+            <div class="card-box">
+                <div class="pack"></div>
+                <div class="current-card"></div>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>

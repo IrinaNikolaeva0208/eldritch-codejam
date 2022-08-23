@@ -1,0 +1,129 @@
+body {
+    font-family: cursive;
+    color: #FFF;
+    background: url(assets/home.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.ancients-box {
+    display: flex;
+    align-items: center;
+}
+
+.ancient, .pack, .current-card {
+    height: 210px;
+    width: 165px;
+    margin: 30px 50px;
+    border-radius: 10px;
+}
+
+.ancient:nth-child(1){
+    background: url(assets/Ancients/Azathoth.png);
+    background-size: cover;
+}
+
+.ancient:nth-child(2) {
+    background: url(assets/Ancients/Cthulthu.png);
+    background-size: cover;
+}
+
+.ancient:nth-child(3) {
+    background: url(assets/Ancients/IogSothoth.png);
+    background-size: cover;
+}
+
+.ancient:nth-child(4) {
+    background: url(assets/Ancients/ShubNiggurath.png);
+    background-size: cover;
+}
+
+
+.pack {
+    background: url(assets/mythicCardBackground.png);
+    background-size: cover;
+}
+
+label {
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+.game-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin-bottom: 30px;
+    font-family: cursive;
+    height: 45px;
+    width: 190px;
+    font-size: 20px;
+    border: none;
+    color: #FFF;
+    background-color: rgb(245, 25, 73);
+    border-radius: 30px;
+    transition: all 0.6s ease;
+}
+
+.card-box {
+    display: flex;
+}
+
+button:hover{
+    background-color: rgb(199, 20, 53);
+}
+
+.play-box {
+    display: flex;
+}
+
+.state-box {
+    display: flex;
+    flex-direction: column;
+    height: 210px;
+    width: 210px;
+    border-radius: 30px;
+    margin: 30px 170px;
+    background-color: rgba(255, 255, 255, 0.5);
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.circle {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.chosen {
+    border: solid 5px rgb(255, 0, 0);
+}
+
+.green {
+    background-color: rgb(100, 241, 100);
+}
+
+.blue {
+    background-color: rgb(86, 86, 248);
+}
+
+.brown {
+    background-color: rgb(90, 78, 78);
+}
