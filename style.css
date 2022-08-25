@@ -22,6 +22,10 @@ body {
     border-radius: 10px;
 }
 
+.ancient, .difficulty-box span, button, .pack {
+    cursor: pointer;
+}
+
 .ancient:nth-child(1){
     background: url(assets/Ancients/Azathoth.png);
     background-size: cover;
@@ -48,7 +52,7 @@ body {
     background-size: cover;
 }
 
-label {
+.difficulty-box span {
     font-size: 20px;
     margin-right: 30px;
 }
@@ -97,6 +101,9 @@ button:hover{
 }
 
 .circle {
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -112,8 +119,12 @@ button:hover{
     opacity: 0;
 }
 
-.chosen {
-    border: solid 5px rgb(255, 0, 0);
+.chosen-anc {
+    border: solid 5px rgb(245, 25, 73);
+}
+
+.chosen-diff {
+    color: rgb(245, 25, 73);
 }
 
 .green {

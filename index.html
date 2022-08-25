@@ -13,17 +13,17 @@
 </head>
 <body>
     <div class="ancients-box">
-        <div class="ancient azathoth chosen"></div>
-        <div class="ancient cthulhu"></div>
-        <div class="ancient iogSothoth"></div>
-        <div class="ancient shubNiggurath"></div>
+        <div id="azathoth" class="ancient chosen-anc"></div>
+        <div id="cthulhu" class="ancient"></div>
+        <div id="iogSothoth" class="ancient"></div>
+        <div id="shubNiggurath" class="ancient"></div>
     </div>
     <div class="difficulty-box">
-        <input type="radio" name="diff" class="difficulty-button" id="extra-easy" value="extra-easy" checked><label for="extra-easy">Очень легкая</label>
-        <input type="radio" name="diff" class="difficulty-button" id="easy" value="easy"><label for="easy">Легкая</label>
-        <input type="radio" name="diff" class="difficulty-button" id="normal" value="normal"><label for="normal">Средняя</label>
-        <input type="radio" name="diff" class="difficulty-button" id="hard" value="hard"><label for="hard">Сложная</label>
-        <input type="radio" name="diff" class="difficulty-button" id="extra-hard" value="extra-hard"><label for="extra-hard">Очень сложная</label>
+        <span id="extra-easy" class="chosen-diff">Очень легкая</span>
+        <span id="easy" >Легкая</span>
+        <span id="normal" >Средняя</span>
+        <span id="hard" >Сложная</span>
+        <span id="extra-hard" >Очень сложная</span>
     </div>
     <div class="game-box">
         <button>Замешать колоду</button>
@@ -54,5 +54,6 @@
             </div>
         </div>  
     </div>
+    <script src="app.js" type="module"></script>
 </body>
 </html>
