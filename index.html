@@ -13,35 +13,35 @@
 </head>
 <body>
     <div class="ancients-box">
-        <div class="ancient azathoth chosen"></div>
-        <div class="ancient cthulhu"></div>
-        <div class="ancient iogSothoth"></div>
-        <div class="ancient shubNiggurath"></div>
+        <div id="azathoth" class="ancient chosen-anc"></div>
+        <div id="cthulhu" class="ancient"></div>
+        <div id="iogSothoth" class="ancient"></div>
+        <div id="shubNiggurath" class="ancient"></div>
     </div>
     <div class="difficulty-box">
-        <input type="radio" name="diff" class="difficulty-button" id="extra-easy" value="extra-easy" checked><label for="extra-easy">Очень легкая</label>
-        <input type="radio" name="diff" class="difficulty-button" id="easy" value="easy"><label for="easy">Легкая</label>
-        <input type="radio" name="diff" class="difficulty-button" id="normal" value="normal"><label for="normal">Средняя</label>
-        <input type="radio" name="diff" class="difficulty-button" id="hard" value="hard"><label for="hard">Сложная</label>
-        <input type="radio" name="diff" class="difficulty-button" id="extra-hard" value="extra-hard"><label for="extra-hard">Очень сложная</label>
+        <span id="extra-easy" class="chosen-diff">Очень легкая</span>
+        <span id="easy" >Легкая</span>
+        <span id="normal" >Средняя</span>
+        <span id="hard" >Сложная</span>
+        <span id="extra-hard" >Очень сложная</span>
     </div>
     <div class="game-box">
         <button>Замешать колоду</button>
         <div class="play-box hidden">
             <div class="state-box">
-                <span>Этап 1</span>
+                <span id="first">Этап 1</span>
                 <div class="row">
                     <div class="circle green first"></div>
                     <div class="circle brown first"></div>
                     <div class="circle blue first"></div>
                 </div>
-                <span>Этап 2</span>
+                <span id="second">Этап 2</span>
                 <div class="row">
                     <div class="circle green second"></div>
                     <div class="circle brown second"></div>
                     <div class="circle blue second"></div>
                 </div>
-                <span>Этап 3</span>
+                <span id="third">Этап 3</span>
                 <div class="row">
                     <div class="circle green third"></div>
                     <div class="circle brown third"></div>
@@ -54,5 +54,6 @@
             </div>
         </div>  
     </div>
+    <script src="app.js" type="module"></script>
 </body>
 </html>
