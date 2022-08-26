@@ -18,7 +18,7 @@ const pack_stack = {
         this[color].sort(() => Math.random() - 0.5);
     },
 };
-const cards_num = {};
+let cards_num = {};
 const play_box = document.querySelector(".play-box");
 const play_button = document.querySelector("button");
 const ancients = document.querySelectorAll(".ancient");
@@ -57,10 +57,11 @@ const create_notextra_pack = (cards_num, subpack) => {
     }
 };
 
-const create_extra_pack = (cards_num, subpack) => {
+const create_extra_pack = (cards_num, subpack, diff) => {
     subpack.sort((a, b) =>
-        a.difficulty == "easy" && a.difficulty != b.difficulty ? -1 : 1
+        a.difficulty == diff && a.difficulty != b.difficulty ? -1 : 1
     );
+    console.log(subpack);
     for (let color of ["green", "brown", "blue"]) {
         const cards_diff = subpack
             .slice(
@@ -81,6 +82,7 @@ const create_extra_pack = (cards_num, subpack) => {
             pack_stack.sort_by_rand(color);
         } else fill_packstack(cards_ness, color, cards_diff);
     }
+    console.log(pack_stack);
 };
 
 for (let an of ancients)
@@ -104,16 +106,26 @@ for (let dif of diffs)
     });
 
 play_button.addEventListener("click", () => {
+    cards_num = {};
+    if (document.querySelector(".current-stage"))
+        document
+            .querySelector(".current-stage")
+            .classList.remove("current-stage");
     play_box.classList.remove("hidden");
     cur_card.style = "background:none";
+    pack_elem.style.visibility = "visible";
     pack_stack.blue = [];
     pack_stack.brown = [];
     pack_stack.green = [];
     const chosen_ancient = document.querySelector(".chosen-anc");
     const chosen_diff = document.querySelector(".chosen-diff");
-    cards_num.first = ancientsData[chosen_ancient.id].firstStage;
-    cards_num.second = ancientsData[chosen_ancient.id].secondStage;
-    cards_num.third = ancientsData[chosen_ancient.id].thirdStage;
+    for (let stage in ancientsData[chosen_ancient.id]) {
+        if (stage != "cardFace")
+            cards_num[stage.slice(0, -5)] = Object.assign(
+                {},
+                ancientsData[chosen_ancient.id][stage]
+            );
+    }
     for (let stage in cards_num)
         for (let circle of circles)
             if (circle.classList.contains(stage))
@@ -122,7 +134,7 @@ play_button.addEventListener("click", () => {
     let subpack = [];
     if (chosen_diff.id == "extra-easy") {
         create_subpack(subpack, "hard");
-        create_extra_pack(cards_num, subpack);
+        create_extra_pack(cards_num, subpack, "easy");
     } else if (chosen_diff.id == "easy") {
         create_subpack(subpack, "hard");
         create_notextra_pack(cards_num, subpack);
@@ -131,7 +143,7 @@ play_button.addEventListener("click", () => {
         create_notextra_pack(cards_num, subpack);
     } else if (chosen_diff.id == "extra-hard") {
         create_subpack(subpack, "easy");
-        create_extra_pack(cards_num, subpack);
+        create_extra_pack(cards_num, subpack, "hard");
     } else {
         create_subpack(subpack);
         create_notextra_pack(cards_num, subpack);
@@ -140,5 +152,28 @@ play_button.addEventListener("click", () => {
 
 pack_elem.addEventListener("click", () => {
     let colors = ["green", "brown", "blue"];
-    for (let stage in cards_num) for (let col in cards_num[stage]);
+    colors.sort(() => Math.random() - 0.5);
+    outer: for (let stage in cards_num) {
+        for (let col of colors) {
+            if (cards_num[stage][col + "Cards"]) {
+                cur_card.style.background = `url(${
+                    pack_stack.remove(col).cardFace
+                })`;
+                cur_card.style.backgroundSize = "cover";
+                document.querySelector(`div.${col}.${stage}`).textContent =
+                    --cards_num[stage][col + "Cards"];
+                document
+                    .getElementById(`${stage}`)
+                    .classList.add("current-stage");
+                if (Object.values(cards_num[stage]).every((elem) => !elem)) {
+                    delete cards_num[stage];
+                    document
+                        .getElementById(`${stage}`)
+                        .classList.remove("current-stage");
+                }
+                break outer;
+            }
+        }
+    }
+    if (!Object.keys(cards_num).length) pack_elem.style.visibility = "hidden";
 });

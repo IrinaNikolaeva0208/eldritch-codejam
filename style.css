@@ -22,6 +22,10 @@ body {
     border-radius: 10px;
 }
 
+.current-stage {
+    color: rgb(245, 25, 73);
+}
+
 .ancient, .difficulty-box span, button, .pack {
     cursor: pointer;
 }
